@@ -1,0 +1,103 @@
+
+
+alias linux='cd ~/Dropbox/Ubuntu18'
+alias  home='cd ~/'
+alias homed='cd ~/Dropbox/Home'
+
+
+alias fixmouse='~/Dropbox/Ubuntu18/scripts/trackpad.sh'
+
+
+
+# Fix the prompt - using prompt from bash_altrc
+# PROMPT_COMMAND='PS1X=$(p="${PWD#${HOME}}"; [ "${PWD}" != "${p}" ] && printf "~";IFS=/; for q in ${p:1}; do printf /${q:0:1}; done; printf "${q:1}")'
+# PS1='\u@\h ${PS1X} $ '
+
+# tmux
+alias  tmux='tmux -2'
+alias pymux='/home/left-hand/Dropbox/Ubuntu18/Tmux/pymux.sh'
+alias  vmux='/home/left-hand/Dropbox/Ubuntu18/Tmux/vmux.sh'
+
+
+# ls aliases
+# ---------------------------------------------------------
+# old stuff
+# alias ll='ls -alF --color --group-directories-first'
+# alias la='ls -A --color --group-directories-first'
+# alias lf='ls -FX | grep -v /'
+
+alias ..='cd ..'
+alias l='ls  -CF     --group-directories-first'
+alias ll='ls -FGlAhp --group-directories-first'
+alias la='ls -aF     --group-directories-first'
+
+# Navigation
+# ---------------------------------------------------------
+cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+# alias  f='open -a Finder ./'                 # f: Opens current directory in MacOS Finder
+
+
+# File Mngt and Search
+# ---------------------------------------------------------
+alias ax="chmod a+x"
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+alias less='less -FSRXc'                    # Preferred 'less' implementation
+
+alias which='type -all'                     # which:        Find executables
+alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias show_options='shopt'                  # Show_options: display bash options settings
+mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+
+alias qfind="find . -name "                 # qfind:    Quickly search for file
+ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the current directory
+ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
+ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
+
+
+# network
+# ---------------------------------------------------------
+ if command -v dig > /dev/null; then
+  alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+  alias mygeo="curl -w \"\\n\" http://api.hackertarget.com/geoip/\?q=\`myip\`"
+fi
+
+# Flush DNS cache
+alias dnsflush="dscacheutil -flushcache"
+
+
+
+
+
+# expressvpn
+# ---------------------------------------------------------
+alias vpn-help="echo 'vpn- | list, disconnect, reset, refresh, status, diagnostics'"
+alias vpn-list='expressvpn list'
+alias vpn-disconnect='expressvpn disconnect'
+alias vpn-reset='expressvpn reset'
+alias vpn-refresh='expressvpn refresh'
+alias vpn-status='expressvpn status'
+alias vpn-diag='expressvpn diagnostics'
+
+# locations
+alias vpn-loc="echo vpn- | smart, denver, dallas, toronto"
+alias vpn-smart='expressvpn connect smart'
+alias vpn-denver='expressvpn connect usde'
+alias vpn-dallas='expressvpn connect usda2'
+alias vpn-toronto='expressvpn connect cato'
+
+# phthon
+# ---------------------------------------------------------
+alias jnote='jupyter notebook'
+alias py='python'
+
+
+# - END -

@@ -1,0 +1,12 @@
+clear Control
+keycode 66 = Control_L
+add Control = Control_L
+add Control = Control_R
+keycode 37 = ISO_Level3_Shift
+
+
+
+keysym h = h H Left NoSymbol NoSymbol NoSymbol
+keysym j = j J Down NoSymbol NoSymbol NoSymbol
+keysym k = k K Up NoSymbol NoSymbol NoSymbol
+keysym l = l L Right NoSymbol lstroke Lstroke

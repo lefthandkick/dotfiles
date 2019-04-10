@@ -1,0 +1,346 @@
+{
+//--------------------------------------------------------------------------
+  "sync.gist": "9e57e4737a1b67215f4dd566e8b96921",
+//--------------------------------------------------------------------------
+  "window.zoomLevel": 1,
+  "window.titleBarStyle": "custom",
+  "window.newWindowDimensions": "inherit",
+//
+  "files.autoSave": "onFocusChange",
+//
+  "editor.folding": true,
+  "editor.glyphMargin": true,
+  "editor.quickSuggestions": true, 
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.wordBasedSuggestions": false,
+  "editor.parameterHints.enabled": false,
+  //
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "Source Code Pro, monospace",
+  // "editor.lineNumbers": "on",
+  "editor.cursorBlinking": "solid",
+  "[markdown]": {
+    "editor.quickSuggestions": false 
+  },
+//
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.editor.showTabs": true,
+  "workbench.statusBar.visible": true,
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+  "workbench.activityBar.visible": true,
+  "workbench.editor.enablePreview": true,
+//
+  "workbench.colorCustomizations": {
+    "editorIndentGuide.background": "#fff0",
+    "editorIndentGuide.activeBackground": "#003847",
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  },
+  //
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.statusBarColorControl": false,
+    "vim.smartcase": true,
+    "vim.timeout": 1020,
+    "vim.sneak": true,
+    "vim.foldfix": true,
+    "vim.visualstar": true,
+    //    
+    "vim.easymotion": true,
+    "vim.easymotionMarkerFontSize": "17",
+    "vim.easymotionMarkerHeight": 17,
+    "vim.easymotionMarkerFontFamily": "Source Code Pro",
+    "vim.easymotionKeys": "asdfghjkl;",
+    "vim.easymotionMarkerWidthPerChar": 11,
+    //
+    "vim.enableNeovim": true,
+    "vim.leader": "<Space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-p>": false,
+        "<C-t>": false,
+        "<C-w>": false,
+  },
+//   
+ "vim.insertModeKeyBindings": [
+    {
+       "before": ["f", "d"],
+       "after": ["<Esc>"]
+     },
+     {
+       "before": ["<C-h>"],
+       "commands": [
+         "cursorLeft"
+       ]
+     },
+     {
+       "before": ["<C-l>"],
+       "commands": [
+         "cursorRight"
+       ]
+     },
+   ],
+//
+ "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before":   ["leader", "w"],
+      "commands": [ "workbench.action.files.save", ]
+    },
+    {
+      "before":   ["leader", "W"],
+      "commands": [ "workbench.action.files.save", "workbench.action.closeActiveEditor" ]
+    },
+    {
+      // put vim command line at top of screen
+      "before":   [ ":" ],
+      "commands": [ "vim.showQuickpickCmdLine" ]
+    },
+    {
+        // keep cursor position after join
+          "before": ["J"],
+          "after": ["m", "z","J","`","z"]
+      },
+      {
+        // keep cursor center screen when page/scrolling 
+          "before": ["<C-f>"],
+          "after": ["<C-f>", "z", "z"]
+      },
+      {
+        // keep cursor center screen when page/scrolling 
+          "before": ["<C-u>"],
+          "after": ["<C-u>", "z", "z"]
+      },
+      {
+        // keep cursor center screen when page/scrolling 
+          "before": ["<C-d>"],
+          "after": ["<C-d>", "z", "z"]
+      },
+      {
+        // keep cursor center screen when page/scrolling 
+          "before": ["<C-b>"],
+          "after": ["<C-b>", "z", "z"]
+      },
+      {
+       //" When jump to next search/match also center screen
+          "before": ["n"],
+          "after": ["n", "z", "z"]
+      },
+      {
+       //" When jump to next search/match also center screen
+          "before": ["N"],
+          "after": ["n", "z", "z"]
+      },
+        {
+          "before": ["H"],
+          "after": ["^"]
+        },
+        {
+          "before": ["L"],
+          "after": ["$"]
+        },
+        {
+          // # then ss to insert n spaces.  Default 1
+          "before": ["s", "s"],
+          "after": ["i","<Space>", "<Esc>"]
+       },
+      {
+        "before": [ "p" ],
+        "after": [ "p", "`", ";[" ]
+      },
+      {
+        "before": [ "Y" ],
+        "after": [ "y", "$" ]
+      },
+      {
+          "before": ["<C-n>"],
+          "commands": [":nohl"]
+     },
+      {
+          "before": ["leader", "l"],
+          "commands": ["settings.cycle.my_line_numbers"]
+     },
+     {
+      "before":   [ "g", "C" ],
+      "commands": [
+          "editor.action.copyLinesDownAction",
+          "cursorUp",
+          "editor.action.addCommentLine",
+          "cursorDown"
+      ]
+    },
+     {
+      "before":   [ "leader", "n" ],
+      "commands": [
+         "vsnotes.focus",
+         "vsnotes.refreshVSNotesView",
+         "vsnotes.focus",
+      ]
+    },
+    {
+      "before":   [ "leader", "N" ],
+      "commands": [
+         "vsnotes.newNote",
+      ]
+    },
+    {
+      "before":   [ "leader", "tab" ],
+      "commands": [":tabn"]
+    },
+
+
+],  // --- End Vim Config
+    // ----------------------------------------------------------
+      "settings.cycle": [
+        {
+            "id": "my_line_numbers",
+            "overrideWorkspaceSettings": false, 
+            "values": [
+                {
+                    "editor.lineNumbers": "off",
+                    "editor.folding": true
+                },
+                {
+                    "editor.lineNumbers": "relative",
+                    "editor.folding": true
+                }
+            ]
+       },
+    ],
+    // ----------------------------------------------------------
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "text.html.markdown.journal.task.open.bullet",
+          "settings": {
+            "foreground": "#FFFF00"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.task.open.marker",
+          "settings": {
+            "foreground": "#FFFF00"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.task.open.keyword",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.task.open.text",
+          "settings": {}
+        },
+        {
+          "scope": "text.html.markdown.journal.task.completed.keyword",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.task.completed.marker",
+          "settings": {
+            "foreground": "#AAAAAA"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.task.completed.text",
+          "settings": {
+            "foreground": "#AAAAAA"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.task.completed.bullet",
+          "settings": {
+            "foreground": "#FFFF00"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.memo.keyword",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.memo.bullet",
+          "settings": {
+            "foreground": "#FFFF00"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.scope",
+          "settings": {
+            "foreground": "#FFFF00"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.link.keyword",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "text.html.markdown.journal.link.bullet",
+          "settings": {
+            "foreground": "#FFFF00"
+          }
+        }
+      ]
+    },
+    "vsnotes.defaultNotePath": "/Users/left-hand/Dropbox/dotfiles/mbp_conig/vscode/VSCode_Notes",
+    "settings.cycle.logLevel": "info",
+    "editor.parameterHints.cycle": true,
+    "editor.lineNumbers": "off",
+    "search.showLineNumbers": true,
+    "explorer.openEditors.visible": 1,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "terminal.integrated.fontSize": 14,
+    "dictCompletion.addSpaceAfterCompletion": true,
+    "dictCompletion.useExternalUserDictFile": false,
+    "git.autofetch": true,
+    "gitlens.views.repositories.files.layout": "tree",
+    "workbench.settings.editor": "json",
+    "workbench.settings.useSplitJSON": true,
+    "workbench.fontAliasing": "auto",
+    "workbench.iconTheme": "vs-seti",
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true
+    },
+
+    //--------------------------------------------------------------------------
+// "macros": {
+//      "wOnly": [
+//        "workbench.action.closePanel",
+//        //  "workbench.action.toggleTabsVisibility",
+//        "workbench.action.closeEditorsInOtherGroups",
+//        "workbench.action.maximizeEditor",
+       
+//      ],
+//      "wReturn": [
+//        "workbench.action.evenEditorWidths",
+//        //  "workbench.action.toggleTabsVisibility",
+//        "workbench.action.toggleSidebarVisibility",
+//        "workbench.action.focusActiveEditorGroup",
+//      ],
+//      "wHide": [
+//        "workbench.action.closePanel",
+//        "workbench.action.toggleSidebarVisibility",
+//        "workbench.action.focusActiveEditorGroup",
+//        // "workbench.action.maximizeEditor",
+//      ],
+// },
+    //--------------------------------------------------------------------------
+
+
+
+
+}

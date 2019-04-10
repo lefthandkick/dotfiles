@@ -1,0 +1,131 @@
+" Ideavim Config
+"
+" --[ Idea Set Commands ]
+set ignorecase
+set gdefault             " the ":substitute" flag 'g' is default on
+set history=768          " Number of things to remember in history.
+set iskeyword+=\$,-      " Add extra characters that are valid parts of variables
+set hlsearch             " highlight matches with last search pattern
+set incsearch            " show where search pattern typed so far matches
+set ignorecase           " ignore case in search patterns
+set smartcase            " no ignore case when pattern has uppercase
+set showmode             " message on status line to show current mode
+set timeoutlen=500       " Time to wait for a command (after leader for example).
+set scrolloff=3          " minimum nr. of lines above and below cursor
+set undolevels=25        " maximum number of changes that can be undone
+set visualbell           " use visual bell instead of beeping
+
+" use system clipboard
+  set clipboard=unnamedplus,unnamed
+  set surround
+
+" ----------------------------------------------------- [ Init ]
+" Set leader to SPACE
+" Note: This line MUST come before any <leader> mappings
+  let mapleader=' '
+  let maplocalleader = ' '
+
+" make escape better
+  inoremap fd <Esc>
+  inoremap FD <Esc>
+  inoremap <C-g> <Esc>
+  nnoremap ; :
+
+" black hole register
+  vmap <backspace> "_d
+  vmap <del> "_d"
+
+" ----------------------------------------------------[ wip - Space-Idea Util Actions ]
+" Note: use switcher for panel nav
+" Swapped Left Ctrl with Left Alt
+" Remapped Idea keys
+" - C-k     -> Up  - used in popup nav
+" - C-J     -> Dn
+
+" - Ctrl-g  -> Escape"  an extra esc key
+" - Alt-q   -> CloseActiveTab
+
+" Leader for Idea centric actions = [ Alt-Space ] : for now keep to Idea numonics abbrv
+"
+
+
+
+
+" ---------------------------------------------------- [ Files / Editing ] --
+"
+" join keep cursor location
+  nnoremap J mzJ`z
+
+ " Change within
+  nmap cw ciw
+  nmap c( ci)
+  nmap c< ci>
+  nmap c{ ci}
+  nmap c[ ci]
+  nmap c' ci'
+  nmap c" ci"
+
+ " - insert Line above/below"
+  noremap <C-j> o<ESC>
+  noremap <C-k> O<ESC>
+
+  " insert a simple space
+  nmap ss i<space><esc>
+
+  " duplicate line and comment the orig
+  nnoremap <leader>cc YI<esc>kp :action CommentByLineComment<CR>
+
+  " Undo / Redo
+  nmap U :action $Redo<CR>
+  nmap u :action $Undo<CR>
+
+  "Yank to eol"
+  nmap Y y$
+
+  "Search highlight off"
+  nmap <leader>cs :noh<CR>
+
+" ---------------------------------------------------- [ Movement / Window / Tabs ]
+ " windows C-w commands work as expected
+ " C-w hjkl move to win
+ " C-w s v spit
+
+  nmap <C-w>r :action MoveTabRight<CR>
+  nmap <C-w>d :action MoveTabDown<CR>
+  nmap <C-w>u :action Unsplit<CR>
+  nmap <C-w>o :action ChangeSplitOrientation<CR>
+
+  nmap <leader>td  action MoveTabDown<CR>
+
+" ; is the repeat key
+  nmap L $
+  nmap H ^
+
+" insert mode cursor navigation
+  inoremap <C-j> <C-o>gj
+  inoremap <C-h> <left>
+  inoremap <C-l> <right>
+  inoremap <C-k> <C-o>gk
+  inoremap <C-a> <Home>
+  inoremap <C-e> <End>
+  inoremap <C-d> <Delete>
+
+
+" use f -> forward & F -> backward search
+  nnoremap b F
+" AceJump
+  nmap <C-;> :action AceAction<CR>
+
+
+
+" ----------------------------------------------------- [ Folding ]
+  nmap zO :action ExpandAllRegions<CR>
+  nmap zo :action ExpandRegion<CR>
+  nmap zc :action CollapseRegion<CR>
+  nmap zC :action CollapseAllRegions<CR>
+
+" ----------------------------------------------------- [ Vim-Idea Util Actions ]
+  " - show all action with key mapping
+  nmap <leader>al :actionlist<CR>
+
+" End of file"

@@ -1,0 +1,107 @@
+# ---------------------------------------------------------------------
+# MER - Update March 23 2019
+# ---------------------------------------------------------------------
+
+# zsh config stuff
+# ---------------------------------------------------------------------
+setopt glob_dots
+setopt extended_glob
+setopt NO_NOMATCH
+setopt NO_BAD_PATTERN
+setopt CSH_NULL_GLOB
+setopt NULL_GLOB
+# ---------------------------------------------------------------------
+# Some functions, like _apt and _dpkg, are very slow, lets give them help
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# Fuzzy matching of completions for when you mistype them:
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# Ignore completion functions for commands you don't have:
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+# With helper functions like:
+# you can avoid having to complete at all in many cases, but if you do, you might
+# want to fall into menu selection immediately and to have the words sorted by
+# time:
+xdvi() { command xdvi ${*:-*.dvi(om[1])} }
+
+zstyle ':completion:*:*:xdvi:*' menu yes select
+zstyle ':completion:*:*:xdvi:*' file-sort time
+
+# Completing process IDs with menu selection:
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+
+# If using a directory as argument, this will 
+# remove the trailing slash (usefull in ln)
+zstyle ':completion:*' squeeze-slashes true
+
+# cd will never select the parent directory (e.g.: cd ../<TAB>):
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# zsh source and reference
+# ---------------------------------------------------------------------
+alias shellr='source ~/.zshrc'
+alias zshref="open -a 'Google Chrome' https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet"
+
+# simplify 
+# ---------------------------------------------------------
+alias q='exit'
+alias c='clear'
+alias h='history'
+alias t='time'
+alias k='kill'
+alias null='/dev/null'
+
+# ls aliases using exa
+# ---------------------------------------------------------
+alias lsf='exa -lh -F -H ^.*(M,@,.)'              # list normal files only
+alias lss='exa -lhad@ -F -H *(M,D,@:t)'           # list sys links only
+alias ll=='exa -lhFH --group-directories-first'   # list dir normal files only
+alias lsd='exa -lhdFH  *(^.D)'                    # list dir only
+# -----------
+alias lsf.='exa -lhad -F -H --sort=name .?*(@,.D:t)'        # list hidden files only
+alias lsd.='exa -lhdFH --group-directories-first  .*(^.D)'  # list hidden dirs only 
+
+
+# Location jumps
+# ---------------------------------------------------------
+alias mbp="cd /Users/left-hand/Dropbox/dotfiles/mbp_zaatas"
+alias home='cd ~/'
+alias devd='cd ~/AppDev/Dart'
+alias devp='cd ~/AppDev/Python'
+alias devn='cd ~/AppDev/JS/Node'
+alias devj='cd ~/AppDev/JS'
+ 
+
+# File Mngt and Search
+# ---------------------------------------------------------
+# type "fd" to open a directory using fzf
+fd() {
+	local dir
+	dir=$(find ${1:-.} -path '*/\.*' -prune \
+		-o -type d -print 2> /dev/null | fzf +m) &&
+		cd "$dir"
+}
+
+alias ax="chmod a+x"
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+alias less='less -FSRXc'                    # Preferred 'less' implementation
+
+alias which='type -all'                     # which:        Find executables
+alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias show_options='shopt'                  # Show_options: display bash options settings
+mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+
+alias qfind="find . -name "                 # qfind:    Quickly search for file
+ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the current directory
+ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
+ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
+#
+# ---------------------------------------------------------------------
